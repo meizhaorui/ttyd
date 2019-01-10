@@ -5,6 +5,7 @@ require('core-js/fn/array');
 require('core-js/fn/object');
 require('core-js/fn/promise');
 require('core-js/fn/typed');
+require('core-js/fn/string/ends-with');
 require('fast-text-encoding');
 
 var Zmodem = require('zmodem.js/src/zmodem_browser');
@@ -246,7 +247,9 @@ var openWs = function() {
             term.dispose();
         }
 
-        term = new Terminal({
+        // expose term handle for some programatic cases
+        // which need to get the content of the terminal
+        term = window.term = new Terminal({
             fontSize: 13,
             fontFamily: '"Menlo for Powerline", Menlo, Consolas, "Liberation Mono", Courier, monospace',
             theme: {

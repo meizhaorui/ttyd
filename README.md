@@ -26,15 +26,7 @@ brew install ttyd
 
 ## Install on Linux
 
-- Install from ppa (ubuntu 16.04 and later):
-
-    ```bash
-    sudo apt-get install -y software-properties-common
-    sudo add-apt-repository ppa:tsl0922/ttyd-dev
-    sudo apt-get update
-    sudo apt-get install ttyd
-    ```
-
+- Binary version: download from the [releases](https://github.com/tsl0922/ttyd/releases) page.
 - Build from source (debian/ubuntu):
 
     ```bash
@@ -45,8 +37,6 @@ brew install ttyd
     make && make install
     ```
 
-    [CMake][19] of at least 3.0 is required. If you get the error message `Policy "CMP0048" is not known to this version of CMake`, that means you have an old CMake.
-    
     You may also need to compile/install [libwebsockets][2] from source if the `libwebsockets-dev` package is outdated.
 
 ## Install on Windows
@@ -64,7 +54,7 @@ ttyd can be built with [MSYS2][10] on windows, The build instructions is [here][
 opkg install ttyd
 ```
 
-If the install command fails, you can [compile it yourself][14].
+You may want to [compile it manually][14].
 
 # Usage
 
@@ -77,7 +67,7 @@ USAGE:
     ttyd [options] <command> [<arguments...>]
 
 VERSION:
-    1.4.0
+    1.4.2
 
 OPTIONS:
     -p, --port              Port to listen (default: 7681, use `0` for random port)
@@ -89,11 +79,13 @@ OPTIONS:
     -r, --reconnect         Time to reconnect for the client in seconds (default: 10)
     -R, --readonly          Do not allow clients to write to the TTY
     -t, --client-option     Send option to client (format: key=value), repeat to add more options
+    -T, --terminal-type     Terminal type to report, default: xterm-256color
     -O, --check-origin      Do not allow websocket connection from different origin
     -m, --max-clients       Maximum clients to support (default: 0, no limit)
     -o, --once              Accept only one client and exit on disconnection
     -B, --browser           Open terminal with the default system browser
     -I, --index             Custom index.html path
+    -6, --ipv6              Enable IPv6 support
     -S, --ssl               Enable SSL
     -C, --ssl-cert          SSL certificate file path
     -K, --ssl-key           SSL key file path
